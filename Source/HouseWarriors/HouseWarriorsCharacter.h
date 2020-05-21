@@ -57,6 +57,12 @@ protected:
 	/** Resets HMD orientation in VR. */
 	void OnResetVR();
 
+	/*Jump behaviour*/
+	UFUNCTION(BlueprintCallable, Category = "Character Movement")
+		void StartJump();
+	/*stop jumping call*/
+	void StopJump();
+
 	/** Called for forwards/backward input */
 	void MoveForward(float Value);
 

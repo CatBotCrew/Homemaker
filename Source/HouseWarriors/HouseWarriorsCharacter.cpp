@@ -80,8 +80,8 @@ void AHouseWarriorsCharacter::SetupPlayerInputComponent(class UInputComponent* P
 {
 	// Set up gameplay key bindings
 	check(PlayerInputComponent);
-	PlayerInputComponent->BindAction("Jump", IE_Pressed, this, &ACharacter::Jump);
-	PlayerInputComponent->BindAction("Jump", IE_Released, this, &ACharacter::StopJumping);
+	PlayerInputComponent->BindAction("Jump", IE_Pressed, this, &AHouseWarriorsCharacter::StartJump);
+	PlayerInputComponent->BindAction("Jump", IE_Released, this, &AHouseWarriorsCharacter::StopJump);
 	
 	PlayerInputComponent->BindAction("Run", IE_Pressed, this, &AHouseWarriorsCharacter::Run);
 	PlayerInputComponent->BindAction("Run", IE_Released, this, &AHouseWarriorsCharacter::RunStop);
@@ -109,6 +109,18 @@ void AHouseWarriorsCharacter::SetupPlayerInputComponent(class UInputComponent* P
 void AHouseWarriorsCharacter::OnResetVR()
 {
 	UHeadMountedDisplayFunctionLibrary::ResetOrientationAndPosition();
+}
+
+void AHouseWarriorsCharacter::StartJump()
+{
+	//CameraBoom->bEnableCameraLag = false;
+	Jump();
+}
+
+void AHouseWarriorsCharacter::StopJump()
+{
+	//CameraBoom->bEnableCameraLag = true;
+	StopJumping();
 }
 
 void AHouseWarriorsCharacter::TouchStarted(ETouchIndex::Type FingerIndex, FVector Location)
