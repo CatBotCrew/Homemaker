@@ -120,6 +120,7 @@ void AHouseWarriorsCharacter::StartJump()
 void AHouseWarriorsCharacter::StopJump()
 {
 	//CameraBoom->bEnableCameraLag = true;
+	
 	StopJumping();
 }
 
@@ -156,6 +157,7 @@ void AHouseWarriorsCharacter::MoveForward(float Value)
 		// get forward vector
 		const FVector Direction = FRotationMatrix(YawRotation).GetUnitAxis(EAxis::X);
 		AddMovementInput(Direction, Value);
+		OnHover();
 	}
 }
 
@@ -171,6 +173,7 @@ void AHouseWarriorsCharacter::MoveRight(float Value)
 		const FVector Direction = FRotationMatrix(YawRotation).GetUnitAxis(EAxis::Y);
 		// add movement in that direction
 		AddMovementInput(Direction, Value);
+		OnHover();
 	}
 }
 

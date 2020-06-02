@@ -122,6 +122,7 @@ protected:
 		void OnDeath();
 		void OnDeath_Implementation();
 
+	/*Using this to play sounds for now*/
 	UFUNCTION(BlueprintNativeEvent, Category = "Interaction")
 		void OnHover();
 		void OnHover_Implementation();
